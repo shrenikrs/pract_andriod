@@ -1,0 +1,9 @@
+<resources>
+    <!--<string name="app_name">Mvvm Template</string>-->
+    <string name="label_welcome">Welcome....</string>
+    <string name="action_okay">Okay</string>
+    <string name="error_web_response_null">Unable to reach server please try after some time.</string>
+    <string name="dialog_btn_ok">Okay</string>
+    <string name="common_ok">OK</string>
+    <string name="common_cancel">Cancel</string>
+</resources>

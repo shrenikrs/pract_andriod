@@ -1,0 +1,130 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+//apply plugin: 'io.fabric'
+
+android {
+    compileSdkVersion 33
+//    buildToolsVersion "31.0.0"
+    defaultConfig {
+        applicationId "com.sample.test"
+        minSdkVersion 21
+        targetSdkVersion 33
+        versionCode 1
+        versionName "1.0.0"
+
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("myreleasekey.keystore")
+            storePassword "password"
+            keyAlias "MyReleaseKey"
+            keyPassword "password"
+            v2SigningEnabled false
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            debuggable true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "HOST", "\"https://demonuts.com/\"")
+            // Below version should be same as Version Name which we have defined in default Config
+            buildConfigField("String", "VERSION", "\"1.0.0\"")
+            resValue("string", "FacebookAppId", "")
+            resValue("string", "app_name", "Mvvm Template")
+        }
+
+        debug {
+            minifyEnabled false
+            applicationIdSuffix ".debug"
+            debuggable true
+            buildConfigField("String", "HOST", "\"https://demonuts.com/\"")
+            buildConfigField("String", "VERSION", "\"1.0.0\"")
+            resValue("string", "FacebookAppId", "")
+            resValue("string", "app_name", "Demo App")
+        }
+
+        /**
+         * The `initWith` property allows you to copy configurations from other build types,
+         * then configure only the settings you want to change. This one copies the debug build
+         * type, and then changes the manifest placeholder and application ID.
+         */
+        staging {
+            initWith debug
+            buildConfigField("String", "HOST", "\"https://stage.xyz.com/\"")
+            buildConfigField("String", "VERSION", "\"1.0.0\"")
+            resValue("string", "FacebookAppId", "")
+            resValue("string", "app_name", "StageBuild")
+            applicationIdSuffix ".stage"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+    kapt {
+        correctErrorTypes true
+    }
+    dataBinding {
+        enabled = true
+    }
+    testOptions {
+        unitTests.all {
+            useJUnitPlatform()
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.recyclerview:recyclerview:1.3.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.fragment:fragment-ktx:1.5.5'
+
+    //unit test
+    testImplementation 'junit:junit:4.13.2'
+
+    //implementation 'com.crashlytics.sdk.android:crashlytics:17.2.2'
+
+    // Network Call
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.11.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.11.0'
+
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1"
+
+    def room_version = "2.4.3"
+    implementation "androidx.room:room-runtime:2.4.3"
+    kapt "androidx.room:room-compiler:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+    testImplementation "androidx.room:room-testing:$room_version"
+
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
+
+    // Image Loader
+    implementation 'com.github.bumptech.glide:glide:4.15.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.15.1'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4'
+
+    // dagger - hilt
+    implementation "com.google.dagger:hilt-android:2.44"
+    kapt "com.google.dagger:hilt-compiler:2.44"
+
+    implementation(project(':extension'))
+}

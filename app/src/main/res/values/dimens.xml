@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Font specific dimensions goes here -->
+    <dimen name="font_size_8_sp">8sp</dimen>
+    <dimen name="font_size_9_sp">9sp</dimen>
+    <dimen name="font_size_10_sp">10sp</dimen>
+    <dimen name="font_size_11_sp">11sp</dimen>
+    <dimen name="font_size_12_sp">12sp</dimen>
+    <dimen name="font_size_13_sp">13sp</dimen>
+    <dimen name="font_size_14_sp">14sp</dimen>
+    <dimen name="font_size_15_sp">15sp</dimen>
+    <dimen name="font_size_16_sp">16sp</dimen>
+    <dimen name="font_size_17_sp">17sp</dimen>
+    <dimen name="font_size_18_sp">18sp</dimen>
+    <dimen name="font_size_19_sp">19sp</dimen>
+    <dimen name="font_size_20_sp">20sp</dimen>
+
+    <!-- Other dimensions goes here it will be used for margins, padding, Height, Width etc -->
+    <dimen name="dimen_size_0_dp">0dp</dimen>
+    <dimen name="dimen_size_1_dp">1dp</dimen>
+    <dimen name="dimen_size_2_dp">2dp</dimen>
+    <dimen name="dimen_size_3_dp">3dp</dimen>
+    <dimen name="dimen_size_4_dp">4dp</dimen>
+    <dimen name="dimen_size_5_dp">5dp</dimen>
+    <dimen name="dimen_size_6_dp">6dp</dimen>
+    <dimen name="dimen_size_7_dp">7dp</dimen>
+    <dimen name="dimen_size_8_dp">8dp</dimen>
+    <dimen name="dimen_size_9_dp">9dp</dimen>
+    <dimen name="dimen_size_10_dp">10dp</dimen>
+    <dimen name="dimen_size_11_dp">11dp</dimen>
+    <dimen name="dimen_size_12_dp">12dp</dimen>
+    <dimen name="dimen_size_13_dp">13dp</dimen>
+    <dimen name="dimen_size_14_dp">14dp</dimen>
+    <dimen name="dimen_size_15_dp">15dp</dimen>
+    <dimen name="dimen_size_16_dp">16dp</dimen>
+    <dimen name="dimen_size_17_dp">17dp</dimen>
+    <dimen name="dimen_size_18_dp">18dp</dimen>
+    <dimen name="dimen_size_19_dp">19dp</dimen>
+    <dimen name="dimen_size_20_dp">20dp</dimen>
+    <dimen name="dimen_size_110_dp">110dp</dimen>
+
+</resources>
